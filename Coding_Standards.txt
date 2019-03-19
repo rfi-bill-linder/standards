@@ -1,0 +1,102 @@
+Programming Rulebook
+
+Versioning:
+	Verions are intended to keep code and libraries working together with a minimal of issues.
+	It is important to use consistent versionsing identification.
+	https://www.python.org/dev/peps/pep-0440/
+	https://semver.org/
+Git Version Control System
+	https://git-scm.com/book/en/v1/Getting-Started-About-Version-Control
+
+Variable Names:
+
+For this example, these will be used:
+	For Parameters:
+		*Always prefix the raw data (the variable that accepts the data passed in) with the word "param_"
+		param_user_name_last
+		param_user_IDX
+		param_user_employee_number
+		param_out_user_valid
+		param_io_user_???
+	For Scrubbed Parameters:
+		*Scrubbed parameters whousl be preficed with the work "this" and shall not be assigned until after the param they are being assigned from has been completey safety checked
+		thisUserNameLast
+		thisUserIDX
+		thisUserEmployeeNumber
+		thisUserValid
+		thisUser???
+	For internal variables (not from parameters):
+		*Internal variables are not directly connected to data being passed in or out.  Their names should describe their function.
+		loopComplete
+		xDimension
+		yDimension
+		zDimension
+		
+	For Classes:
+		Begin with a capital letter:		RPS_WorkOrder
+		Refer to instances with self:		self.
+		Prefix private variables with _:	_privateVariable
+		The name of the file that the class is in should be its plural.  The class itself should be singular case.
+	
+	For functions,___.
+		
+	
+	For references:
+		*References are pointers to a value/memory location.  Multiple variables can point to the same data by having the same reference.
+		*_fx_* is a function reference (pointer)
+		*_ins_* is an instance reference (pointer)
+		*_lst_* is a list reference (pointer)
+		*_fil_* is a file reference (pointer)
+		...
+
+
+
+When Defining functions, proceudures, class, etc, always provide a brief descrption of what the routing is doing immediately before the code is listed.
+	For instance in MySql:
+	/*
+	DESC: 	Describe what the routine is doing here in plain terms.
+    ASSUME: Any assumptions are listed here.  The fewer assumptions that are needed, the better.
+    AUTHOR: Original Author
+    DATE:	Original Date
+    REVISIONS: 'XXXX' YYYY-MM-DD AUTHOR	DESCRIPTION............................
+		Revisions are one line entries that show:
+		WHERE	XXXX - Is a unique revision/update code
+		AND		YYYY-MM-DD is the date of the revision/update
+		AND		AUTHOR is the person who wrote the revision/update
+		AND		DESCRIPTION is the description of the revision/update
+	*/
+	For instance in Python:
+	"""
+	These are the basic data definitions and structures for RPS.
+
+	All work done on data in the classes is done from within the class.
+	Calling programs should be written such that changes made in the data definition classes cannot impact the caller.
+	The only exception might be output if the amount of space for the output is not able to handle an increase in required size
+	There are base RPS classes and then classed that derive from these (one or more parents) 
+
+	The full set of datatypes is maintained in the datatypes subdirectory.
+	"""
+
+
+Paramaters will be prefixed as follows:
+	Input only	: 	param_
+	Output only	:	param_out_
+	Both		:	param_io_
+	
+Non-Parameter variables will use camel case.  The name of the parameter and its related internal scrubbed variable will be this:
+	
+
+
+Variables that result from parameters being passed are prefixed as follows:
+	this
+	
+Variable that are not from parameters SHALL NOT start with the word 'this'
+
+An internal class instance references SHALL use 'self' as the instance reference.
+	self.param_variable_name
+	self.variableName
+
+
+
+
+
